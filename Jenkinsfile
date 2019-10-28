@@ -1,9 +1,6 @@
 #!groovy
 pipeline {
     agent any
-    environment{
-
-    }
     stages{
          stage('静态分析'){
             steps{
