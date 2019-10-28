@@ -25,6 +25,10 @@ pipeline {
                 sh 'bash /var/jenkins_home/buildImg.sh eureka-server'
             }
         }
-
+        stage('Run'){
+            steps{
+                echo 'Run project...'
+            }
+        }
     }
 }
