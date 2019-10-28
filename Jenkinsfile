@@ -22,7 +22,7 @@ pipeline {
         stage('Push'){
             steps{
                 echo 'Push images...'
-                sh 'bash /var/jenkins_home/buildImg.sh eureka-server'
+                sh 'bash /var/jenkins_home/buildImg.sh eureka-server 1.3'
             }
         }
         stage('Run'){
