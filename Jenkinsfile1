@@ -14,5 +14,9 @@ pipeline {
               sh "mvn -U -am clean install -Dmaven.test.skip=true  "
      }
    }
+    stage('Push') {
+        agent any
+        echo "push"
+    }
  }
 }
