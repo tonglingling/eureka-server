@@ -2,7 +2,7 @@
 pipeline {
  agent none
  stages {
-   stage('Build') {
+   stage('编译+单元测试') {
      agent {
        docker {
          image 'maven:3-alpine'
@@ -10,6 +10,7 @@ pipeline {
        }
      }
      steps {
+              echo "start compile"
               sh "mvn -U -am clean install -Dmaven.test.skip=true "
      }
    }
