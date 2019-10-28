@@ -1,5 +1,6 @@
 #!groovy
 pipeline {
+
     agent {
         docker {
             image 'maven:3-alpine'
@@ -10,8 +11,23 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                echo 'Building'
                 sh 'mvn -B -DskipTests clean package'
             }
         }
+
+        stage('Test') {
+            steps {
+                echo 'Testing'
+            }
+        }
+
+        stage('Push'){
+            steps{
+                echo 'Push images...'
+                sh '/buildImg.sh eureka-server'
+            }
+        }
+
     }
 }
