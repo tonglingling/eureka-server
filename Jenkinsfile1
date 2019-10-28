@@ -12,7 +12,7 @@ pipeline {
      steps {
               agent any
               echo "start compile"
-              sh "mvn -U -am clean install -Dmaven.test.skip=true "
+              sh "mvn -U -am clean install -Dmaven.test.skip=true  "
      }
    }
  }
