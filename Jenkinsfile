@@ -2,7 +2,7 @@
 pipeline {
     agent any
     environment{
-        SCRIPT_PATH="/root/scripts"
+
     }
     stages{
          stage('静态分析'){
@@ -13,7 +13,7 @@ pipeline {
          stage('编译+单元测试'){
             steps{
                 echo "start compile"
-                sh "mvn -U -am clean install -Dmaven.test.skip=true "
+                sh "mvn clean install -Dmaven.test.skip=true "
             }
         }
 
