@@ -2,7 +2,7 @@
 pipeline {
  agent none
  stages {
-   stage('编译+单元测试') {
+   stage('Build') {
      agent {
        docker {
          image 'maven:3-alpine'

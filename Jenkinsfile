@@ -17,12 +17,5 @@ pipeline {
             }
         }
 
-         stage('构建镜像'){
-            steps{
-                echo "start build image 1111"
-                sh "bash ${SCRIPT_PATH}/build_images.sh consul-server 0.1.1"
-                echo "start build image 2222"
-            }
-        }
     }
 }
