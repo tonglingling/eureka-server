@@ -24,7 +24,7 @@ pipeline {
         stage('Push'){
             steps{
                 echo 'Push images...'
-                sh 'bash buildImg.sh eureka-server'
+                sh 'bash /var/jenkins_home/buildImg.sh eureka-server'
             }
         }
 
