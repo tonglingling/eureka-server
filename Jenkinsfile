@@ -1,17 +1,31 @@
 #!groovy
 pipeline {
     agent any
-    stages{
-         stage('静态分析'){
-            steps{
-                echo "start check code"
+    stages {
+        stage('Build') {
+           agent {
+                docker {
+                    image 'maven:3-alpine'
+                    args '-v /root/.m2:/root/.m2'
+                }
+            }
+            steps {
+                echo 'Building'
+                sh 'mvn -B -DskipTests clean package'
             }
         }
-         stage('编译+单元测试'){
-            steps{
-                echo "start compile"
-                sh "mvn clean install -Dmaven.test.skip=true "
+
+        stage('Test') {
+            steps {
+                echo 'Testing'
             }
         }
+        stage('Push'){
+            steps{
+                echo 'Push images...'
+                sh 'bash /var/jenkins_home/buildImg.sh eureka-server'
+            }
+        }
+
     }
 }
