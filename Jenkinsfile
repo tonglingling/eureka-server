@@ -13,6 +13,7 @@ pipeline {
                 git "${REPOSITORY}"
             }
         }
+
         stage('Build') {
            agent {
                 docker {
