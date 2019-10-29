@@ -23,9 +23,10 @@ pipeline {
             agent any
             steps{
                 echo 'Push images...'
-                sh 'bash buildImg.sh eureka-server 1.4'
+                sh 'bash buildImg.sh eureka-server 1.5'
             }
         }
+
         stage('Run'){
             steps{
                 echo 'Run project...'
