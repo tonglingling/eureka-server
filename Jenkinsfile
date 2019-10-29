@@ -3,6 +3,7 @@ pipeline {
     agent none
     stages {
         stage('Checkout'){
+            agent any
             environment{
                 REPOSITORY="https://github.com/tonglingling/eureka-server.git"
             }
