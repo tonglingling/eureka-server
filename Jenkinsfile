@@ -19,6 +19,7 @@ pipeline {
                 echo 'Testing'
             }
         }
+
         stage('Push'){
             agent any
             steps{
