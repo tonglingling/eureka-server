@@ -2,6 +2,16 @@
 pipeline {
     agent none
     stages {
+        stage('Checkout'){
+            environment{
+                REPOSITORY="https://github.com/tonglingling/eureka-server.git"
+            }
+            steps{
+                echo "start fetch code from git:${REPOSITORY}"
+                deleteDir()
+                git "${REPOSITORY}"
+            }
+        }
         stage('Build') {
            agent {
                 docker {
