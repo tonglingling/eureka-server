@@ -26,7 +26,6 @@ pipeline {
                 sh 'bash buildImg.sh eureka-server 1.5'
             }
         }
-
         stage('Run'){
             steps{
                 echo 'Run project...'
