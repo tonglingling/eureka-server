@@ -2,18 +2,6 @@
 pipeline {
     agent none
     stages {
-        stage('Checkout'){
-            agent any
-            environment{
-                REPOSITORY="https://github.com/tonglingling/eureka-server.git"
-            }
-            steps{
-                echo "start fetch code from git:${REPOSITORY}"
-                deleteDir()
-                git "${REPOSITORY}"
-            }
-        }
-
         stage('Build') {
            agent {
                 docker {
@@ -36,7 +24,7 @@ pipeline {
             agent any
             steps{
                 echo 'Push images...'
-                sh 'bash buildImg.sh eureka-server 1.3'
+                sh 'bash buildImg.sh eureka-server v.1.3'
             }
         }
         stage('Run'){
